@@ -1,0 +1,31 @@
+dial_book = {"Alabama" => "212", 
+             "California" => "209",
+             "Florida" => "239",
+             "Georgia" => "229",
+             "Hawai" => "208", 
+             "Maryland" => "240",
+             "Montana" => "406", 
+             "Tennessee" => "423"}
+
+def get_city_names(somehash)
+  somehash.keys
+end
+
+def get_area_codes(somehash, value)
+  somehash[value]
+end
+
+loop do
+  puts "Do You Want To Lookup An Area Code Based On City Name? (Y/N)"
+input = gets.chomp.downcase
+if input == "n"
+  return input
+end
+  puts "Which city do you want the area code for"
+  puts get_city_names(dial_book)
+  puts "Enter Your Selection"
+  prompt = gets.chomp
+  if dial_book.include?(prompt)
+    puts "The area code for #{prompt} is #{get_area_codes(dial_book, prompt)}" 
+  end 
+end
